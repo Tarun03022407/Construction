@@ -11,9 +11,9 @@ const moveBackground = keyframes`
 
 // Keyframes for the zoom-in and zoom-out animation on large screens
 const zoomBackground = keyframes`
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+0% { transform: scale(1); }
+50% { transform: scale(1.05); } /* Slightly scale up to avoid extra space */
+100% { transform: scale(1); }
 `;
 
 const IntroSection = () => {

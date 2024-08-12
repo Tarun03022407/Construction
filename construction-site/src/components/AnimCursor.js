@@ -11,7 +11,7 @@ function AnimCursor() {
       innerScale={0} // No inner scaling, keeping it invisible
       outerScale={1.5} // Slight scaling effect on hover
       outerStyle={{
-        border: '2px solid white', // Make the outer circle a solid white border
+        border: '2px solid rgb(255,165,0)', // Make the outer circle a solid orange border
         backgroundColor: 'transparent' // Ensure the background is transparent
       }}
       clickables={[

@@ -1,76 +1,53 @@
-import { AiOutlineMail,AiFillGithub, AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai'
-import {IoIosCall} from 'react-icons/io'
-import { TbArrowBigRightLines } from 'react-icons/tb'
-import '../components/StyleEmailer.css'
+import { AiOutlineMail, AiOutlineInstagram } from 'react-icons/ai';
+import { IoIosCall } from 'react-icons/io';
+import { TbArrowBigRightLines } from 'react-icons/tb';
+import '../components/StyleEmailer.css';
 import React, { useRef } from 'react';
 import emailjs from 'emailjs-com';
+
 const Inquiry = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_xdy8r85', 'template_7q09r67', form.current, 'xkAVIy-WKLKe8tbrG')
-      e.target.reset()
+    emailjs.sendForm('service_xdy8r85', 'template_7q09r67', form.current, 'xkAVIy-WKLKe8tbrG');
+    e.target.reset();
   };
-// sendEmail()
 
   return (
-    <section id="contact" className='contact container section'>
-     <div className="sectionTitle">
-        <span className="titleNumber"></span>
-        <h5 className="titleText">
-          Contact
-          <div className="underline">
-            <span></span>
-          </div>
-        </h5>
-      </div>
-      <div className="contactContainer grid">
-        <div className="socialContacts grid">
-          <h3>Get in Touch</h3>
-          <div className="cards grid">
+    <section id="inquiry" className='contact container section'>
+      <div className="contactContainer">
+        <div className="socialContacts">
+          <div className="cards">
             <div className="card">
-              <div>
-                <AiOutlineInstagram className='icon'/>
-              </div>
+              <AiOutlineInstagram className='icon' />
               <h4>Instagram</h4>
-              <span className="userName">
-              Ideal Shelter
-              </span>
-              <div>
-                <a href="https://www.instagram.com/idealshelter/" className='flex' target="_blank">
-                  Send Message<TbArrowBigRightLines className='icon'/>
-                </a>
-              </div>
+              <span className="userName">Ideal Shelter</span>
+              <a href="https://www.instagram.com/idealshelter/" className='flex' target="_blank" rel="noopener noreferrer">
+                Send Message<TbArrowBigRightLines className='icon' />
+              </a>
             </div>
             <div className="card">
-              <div>
-                <AiOutlineMail className='icon'/>
-              </div>
-              <h4>E-mail & Contact </h4>
-              <span className="userName">
-              idealshelter2021@gmail.com
-              </span>
-              <div>
-              
-              <a href='tel:9818015195'>9818015195 <IoIosCall className='icon'  />   </a>  
-        
-              </div>
+              <AiOutlineMail className='icon' />
+              <h4>E-mail & Contact</h4>
+              <span className="userName">idealshelter2021@gmail.com</span>
+              <a href='tel:9818015195'>
+                9818015195 <IoIosCall className='icon' />
+              </a>
             </div>
           </div>
         </div>
-        <div className="form grid">
-          <h3>Send me an email</h3>
-          <form action="https://formspree.io/f/mpznbyel" method="POST" className="contact-inputs">
-            <input type="text" placeholder="username" name="username" autoComplete="off"  required />
-            <input type="email" placeholder="Enter Email" name="email" autoComplete="off"  required/>
+        <div className="form">
+          <form action="https://formspree.io/f/mpznbyel" method="POST" className="contact-inputs" ref={form} onSubmit={sendEmail}>
+            <input type="text" placeholder="Username" name="username" autoComplete="off" required />
+            <input type="email" placeholder="Enter Email" name="email" autoComplete="off" required />
             <textarea name="message" cols="30" rows="10" required autoComplete="off" placeholder="Enter Your Message"></textarea>
             <button className='formBtn' type="submit" value="Send">Send Email</button>
           </form>
         </div>
       </div>
-  </section>
-  )
+    </section>
+  );
 }
 
-export default Inquiry
+export default Inquiry;
